@@ -5,16 +5,16 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OCTOBER.Server.Migrations
 {
-    public partial class INITIAL : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.EnsureSchema(
-                name: "LAB5");
+                name: "UD_SOLGACON");
 
             migrationBuilder.CreateTable(
                 name: "ASP_NET_ROLES",
-                schema: "LAB5",
+                schema: "UD_SOLGACON",
                 columns: table => new
                 {
                     ID = table.Column<string>(type: "NVARCHAR2(450)", nullable: false),
@@ -29,7 +29,7 @@ namespace OCTOBER.Server.Migrations
 
             migrationBuilder.CreateTable(
                 name: "ASP_NET_USERS",
-                schema: "LAB5",
+                schema: "UD_SOLGACON",
                 columns: table => new
                 {
                     ID = table.Column<string>(type: "NVARCHAR2(450)", nullable: false),
@@ -55,7 +55,7 @@ namespace OCTOBER.Server.Migrations
 
             migrationBuilder.CreateTable(
                 name: "DEVICE_CODES",
-                schema: "LAB5",
+                schema: "UD_SOLGACON",
                 columns: table => new
                 {
                     USER_CODE = table.Column<string>(type: "NVARCHAR2(200)", maxLength: 200, nullable: false),
@@ -75,7 +75,7 @@ namespace OCTOBER.Server.Migrations
 
             migrationBuilder.CreateTable(
                 name: "KEYS",
-                schema: "LAB5",
+                schema: "UD_SOLGACON",
                 columns: table => new
                 {
                     ID = table.Column<string>(type: "NVARCHAR2(450)", nullable: false),
@@ -85,7 +85,7 @@ namespace OCTOBER.Server.Migrations
                     ALGORITHM = table.Column<string>(type: "NVARCHAR2(100)", maxLength: 100, nullable: false),
                     IS_X509_CERTIFICATE = table.Column<bool>(type: "NUMBER(1)", nullable: false),
                     DATA_PROTECTED = table.Column<bool>(type: "NUMBER(1)", nullable: false),
-                    DATA = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false)
+                    DATA = table.Column<string>(type: "NCLOB", maxLength: 50000, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -94,7 +94,7 @@ namespace OCTOBER.Server.Migrations
 
             migrationBuilder.CreateTable(
                 name: "PERSISTED_GRANTS",
-                schema: "LAB5",
+                schema: "UD_SOLGACON",
                 columns: table => new
                 {
                     KEY = table.Column<string>(type: "NVARCHAR2(200)", maxLength: 200, nullable: false),
@@ -115,7 +115,7 @@ namespace OCTOBER.Server.Migrations
 
             migrationBuilder.CreateTable(
                 name: "ASP_NET_ROLE_CLAIMS",
-                schema: "LAB5",
+                schema: "UD_SOLGACON",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "NUMBER(10)", nullable: false)
@@ -130,7 +130,7 @@ namespace OCTOBER.Server.Migrations
                     table.ForeignKey(
                         name: "FK_ASP_NET_ROLE_CLAIMS_ASP_NET_ROLES_ROLE_ID",
                         column: x => x.ROLE_ID,
-                        principalSchema: "LAB5",
+                        principalSchema: "UD_SOLGACON",
                         principalTable: "ASP_NET_ROLES",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
@@ -138,7 +138,7 @@ namespace OCTOBER.Server.Migrations
 
             migrationBuilder.CreateTable(
                 name: "ASP_NET_USER_CLAIMS",
-                schema: "LAB5",
+                schema: "UD_SOLGACON",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "NUMBER(10)", nullable: false)
@@ -153,7 +153,7 @@ namespace OCTOBER.Server.Migrations
                     table.ForeignKey(
                         name: "FK_ASP_NET_USER_CLAIMS_ASP_NET_USERS_USER_ID",
                         column: x => x.USER_ID,
-                        principalSchema: "LAB5",
+                        principalSchema: "UD_SOLGACON",
                         principalTable: "ASP_NET_USERS",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
@@ -161,7 +161,7 @@ namespace OCTOBER.Server.Migrations
 
             migrationBuilder.CreateTable(
                 name: "ASP_NET_USER_LOGINS",
-                schema: "LAB5",
+                schema: "UD_SOLGACON",
                 columns: table => new
                 {
                     LOGIN_PROVIDER = table.Column<string>(type: "NVARCHAR2(128)", maxLength: 128, nullable: false),
@@ -175,7 +175,7 @@ namespace OCTOBER.Server.Migrations
                     table.ForeignKey(
                         name: "FK_ASP_NET_USER_LOGINS_ASP_NET_USERS_USER_ID",
                         column: x => x.USER_ID,
-                        principalSchema: "LAB5",
+                        principalSchema: "UD_SOLGACON",
                         principalTable: "ASP_NET_USERS",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
@@ -183,7 +183,7 @@ namespace OCTOBER.Server.Migrations
 
             migrationBuilder.CreateTable(
                 name: "ASP_NET_USER_ROLES",
-                schema: "LAB5",
+                schema: "UD_SOLGACON",
                 columns: table => new
                 {
                     USER_ID = table.Column<string>(type: "NVARCHAR2(450)", nullable: false),
@@ -195,14 +195,14 @@ namespace OCTOBER.Server.Migrations
                     table.ForeignKey(
                         name: "FK_ASP_NET_USER_ROLES_ASP_NET_ROLES_ROLE_ID",
                         column: x => x.ROLE_ID,
-                        principalSchema: "LAB5",
+                        principalSchema: "UD_SOLGACON",
                         principalTable: "ASP_NET_ROLES",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ASP_NET_USER_ROLES_ASP_NET_USERS_USER_ID",
                         column: x => x.USER_ID,
-                        principalSchema: "LAB5",
+                        principalSchema: "UD_SOLGACON",
                         principalTable: "ASP_NET_USERS",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
@@ -210,7 +210,7 @@ namespace OCTOBER.Server.Migrations
 
             migrationBuilder.CreateTable(
                 name: "ASP_NET_USER_TOKENS",
-                schema: "LAB5",
+                schema: "UD_SOLGACON",
                 columns: table => new
                 {
                     USER_ID = table.Column<string>(type: "NVARCHAR2(450)", nullable: false),
@@ -224,7 +224,7 @@ namespace OCTOBER.Server.Migrations
                     table.ForeignKey(
                         name: "FK_ASP_NET_USER_TOKENS_ASP_NET_USERS_USER_ID",
                         column: x => x.USER_ID,
-                        principalSchema: "LAB5",
+                        principalSchema: "UD_SOLGACON",
                         principalTable: "ASP_NET_USERS",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
@@ -232,13 +232,13 @@ namespace OCTOBER.Server.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_ASP_NET_ROLE_CLAIMS_ROLE_ID",
-                schema: "LAB5",
+                schema: "UD_SOLGACON",
                 table: "ASP_NET_ROLE_CLAIMS",
                 column: "ROLE_ID");
 
             migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
-                schema: "LAB5",
+                schema: "UD_SOLGACON",
                 table: "ASP_NET_ROLES",
                 column: "NORMALIZED_NAME",
                 unique: true,
@@ -246,31 +246,31 @@ namespace OCTOBER.Server.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_ASP_NET_USER_CLAIMS_USER_ID",
-                schema: "LAB5",
+                schema: "UD_SOLGACON",
                 table: "ASP_NET_USER_CLAIMS",
                 column: "USER_ID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ASP_NET_USER_LOGINS_USER_ID",
-                schema: "LAB5",
+                schema: "UD_SOLGACON",
                 table: "ASP_NET_USER_LOGINS",
                 column: "USER_ID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ASP_NET_USER_ROLES_ROLE_ID",
-                schema: "LAB5",
+                schema: "UD_SOLGACON",
                 table: "ASP_NET_USER_ROLES",
                 column: "ROLE_ID");
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
-                schema: "LAB5",
+                schema: "UD_SOLGACON",
                 table: "ASP_NET_USERS",
                 column: "NORMALIZED_EMAIL");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
-                schema: "LAB5",
+                schema: "UD_SOLGACON",
                 table: "ASP_NET_USERS",
                 column: "NORMALIZED_USER_NAME",
                 unique: true,
@@ -278,44 +278,44 @@ namespace OCTOBER.Server.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_DEVICE_CODES_DEVICE_CODE",
-                schema: "LAB5",
+                schema: "UD_SOLGACON",
                 table: "DEVICE_CODES",
                 column: "DEVICE_CODE",
                 unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_DEVICE_CODES_EXPIRATION",
-                schema: "LAB5",
+                schema: "UD_SOLGACON",
                 table: "DEVICE_CODES",
                 column: "EXPIRATION");
 
             migrationBuilder.CreateIndex(
                 name: "IX_KEYS_USE",
-                schema: "LAB5",
+                schema: "UD_SOLGACON",
                 table: "KEYS",
                 column: "USE");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PERSISTED_GRANTS_CONSUMED_TIME",
-                schema: "LAB5",
+                schema: "UD_SOLGACON",
                 table: "PERSISTED_GRANTS",
                 column: "CONSUMED_TIME");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PERSISTED_GRANTS_EXPIRATION",
-                schema: "LAB5",
+                schema: "UD_SOLGACON",
                 table: "PERSISTED_GRANTS",
                 column: "EXPIRATION");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PERSISTED_GRANTS_SUBJECT_ID_CLIENT_ID_TYPE",
-                schema: "LAB5",
+                schema: "UD_SOLGACON",
                 table: "PERSISTED_GRANTS",
                 columns: new[] { "SUBJECT_ID", "CLIENT_ID", "TYPE" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_PERSISTED_GRANTS_SUBJECT_ID_SESSION_ID_TYPE",
-                schema: "LAB5",
+                schema: "UD_SOLGACON",
                 table: "PERSISTED_GRANTS",
                 columns: new[] { "SUBJECT_ID", "SESSION_ID", "TYPE" });
         }
@@ -324,43 +324,43 @@ namespace OCTOBER.Server.Migrations
         {
             migrationBuilder.DropTable(
                 name: "ASP_NET_ROLE_CLAIMS",
-                schema: "LAB5");
+                schema: "UD_SOLGACON");
 
             migrationBuilder.DropTable(
                 name: "ASP_NET_USER_CLAIMS",
-                schema: "LAB5");
+                schema: "UD_SOLGACON");
 
             migrationBuilder.DropTable(
                 name: "ASP_NET_USER_LOGINS",
-                schema: "LAB5");
+                schema: "UD_SOLGACON");
 
             migrationBuilder.DropTable(
                 name: "ASP_NET_USER_ROLES",
-                schema: "LAB5");
+                schema: "UD_SOLGACON");
 
             migrationBuilder.DropTable(
                 name: "ASP_NET_USER_TOKENS",
-                schema: "LAB5");
+                schema: "UD_SOLGACON");
 
             migrationBuilder.DropTable(
                 name: "DEVICE_CODES",
-                schema: "LAB5");
+                schema: "UD_SOLGACON");
 
             migrationBuilder.DropTable(
                 name: "KEYS",
-                schema: "LAB5");
+                schema: "UD_SOLGACON");
 
             migrationBuilder.DropTable(
                 name: "PERSISTED_GRANTS",
-                schema: "LAB5");
+                schema: "UD_SOLGACON");
 
             migrationBuilder.DropTable(
                 name: "ASP_NET_ROLES",
-                schema: "LAB5");
+                schema: "UD_SOLGACON");
 
             migrationBuilder.DropTable(
                 name: "ASP_NET_USERS",
-                schema: "LAB5");
+                schema: "UD_SOLGACON");
         }
     }
 }

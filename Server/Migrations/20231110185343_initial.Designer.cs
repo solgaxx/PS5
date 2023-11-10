@@ -12,14 +12,14 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace OCTOBER.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231025001014_INITIAL")]
-    partial class INITIAL
+    [Migration("20231110185343_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasDefaultSchema("LAB5")
+                .HasDefaultSchema("UD_SOLGACON")
                 .UseCollation("USING_NLS_COMP")
                 .HasAnnotation("ProductVersion", "6.0.23")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
@@ -82,7 +82,7 @@ namespace OCTOBER.Server.Migrations
 
                     b.HasIndex("Expiration");
 
-                    b.ToTable("DEVICE_CODES", "LAB5");
+                    b.ToTable("DEVICE_CODES", "UD_SOLGACON");
                 });
 
             modelBuilder.Entity("Duende.IdentityServer.EntityFramework.Entities.Key", b =>
@@ -126,7 +126,7 @@ namespace OCTOBER.Server.Migrations
 
                     b.HasIndex("Use");
 
-                    b.ToTable("KEYS", "LAB5");
+                    b.ToTable("KEYS", "UD_SOLGACON");
                 });
 
             modelBuilder.Entity("Duende.IdentityServer.EntityFramework.Entities.PersistedGrant", b =>
@@ -191,7 +191,7 @@ namespace OCTOBER.Server.Migrations
 
                     b.HasIndex("SubjectId", "SessionId", "Type");
 
-                    b.ToTable("PERSISTED_GRANTS", "LAB5");
+                    b.ToTable("PERSISTED_GRANTS", "UD_SOLGACON");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -222,7 +222,7 @@ namespace OCTOBER.Server.Migrations
                         .HasDatabaseName("RoleNameIndex")
                         .HasFilter("\"NORMALIZED_NAME\" IS NOT NULL");
 
-                    b.ToTable("ASP_NET_ROLES", "LAB5");
+                    b.ToTable("ASP_NET_ROLES", "UD_SOLGACON");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -251,7 +251,7 @@ namespace OCTOBER.Server.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("ASP_NET_ROLE_CLAIMS", "LAB5");
+                    b.ToTable("ASP_NET_ROLE_CLAIMS", "UD_SOLGACON");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -280,7 +280,7 @@ namespace OCTOBER.Server.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ASP_NET_USER_CLAIMS", "LAB5");
+                    b.ToTable("ASP_NET_USER_CLAIMS", "UD_SOLGACON");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
@@ -308,7 +308,7 @@ namespace OCTOBER.Server.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ASP_NET_USER_LOGINS", "LAB5");
+                    b.ToTable("ASP_NET_USER_LOGINS", "UD_SOLGACON");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
@@ -325,7 +325,7 @@ namespace OCTOBER.Server.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("ASP_NET_USER_ROLES", "LAB5");
+                    b.ToTable("ASP_NET_USER_ROLES", "UD_SOLGACON");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -350,7 +350,7 @@ namespace OCTOBER.Server.Migrations
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
-                    b.ToTable("ASP_NET_USER_TOKENS", "LAB5");
+                    b.ToTable("ASP_NET_USER_TOKENS", "UD_SOLGACON");
                 });
 
             modelBuilder.Entity("OCTOBER.Server.Models.ApplicationUser", b =>
@@ -430,7 +430,7 @@ namespace OCTOBER.Server.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("\"NORMALIZED_USER_NAME\" IS NOT NULL");
 
-                    b.ToTable("ASP_NET_USERS", "LAB5");
+                    b.ToTable("ASP_NET_USERS", "UD_SOLGACON");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

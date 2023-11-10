@@ -19,7 +19,7 @@ namespace OCTOBER.Server.Data
         {
             base.OnModelCreating(builder);
 
-            builder.HasDefaultSchema("LAB5")
+            builder.HasDefaultSchema("UD_SOLGACON")
                 .HasAnnotation("Relational:Collation", "USING_NLS_COMP");
 
             builder.ToUpperCaseTables();

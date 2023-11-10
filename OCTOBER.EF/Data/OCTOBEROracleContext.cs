@@ -31,7 +31,7 @@ namespace OCTOBER.EF.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasDefaultSchema("LAB5")
+            modelBuilder.HasDefaultSchema("UD_SOLGACON")
                 .UseCollation("USING_NLS_COMP");
 
             modelBuilder.Entity<Course>(entity =>
